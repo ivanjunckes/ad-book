@@ -5,7 +5,7 @@ This project has an External Book API to help you search for external books usin
 - [Git](https://git-scm.com/)
 - [Apache Maven 3.5.0 or above](https://maven.apache.org/download.cgi)
 
-Please follow the instructions below, there are a few steps to pull, install and run the project. # 
+Please follow the instructions below, there are a few steps to pull, install and run the project. 
 
 # Installation Instructions
 
