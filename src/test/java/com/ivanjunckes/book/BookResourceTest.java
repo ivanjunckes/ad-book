@@ -1,13 +1,19 @@
 package com.ivanjunckes.book;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.jaxrs.base.NoContentExceptionSupplier;
+import com.fasterxml.jackson.jaxrs.base.ProviderBase;
+import com.fasterxml.jackson.jaxrs.cfg.EndpointConfigBase;
+import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.ivanjunckes.book.external.IceAndFireBook;
 import com.ivanjunckes.common.ApiResult;
 import com.ivanjunckes.common.JacksonJSONProvider;
-import org.apache.ziplock.maven.Mvn;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.shrinkwrap.api.Archive;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.ClassLoaderAsset;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +23,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URL;
@@ -42,8 +47,14 @@ public class BookResourceTest {
 
     @Deployment(testable = false)
     public static WebArchive createDeployment() {
-        final Archive<?> war = Mvn.war();
-        return (WebArchive) war;
+        WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "bookapp.war")
+                .addAsWebInfResource(new StringAsset("<beans/>"), "beans.xml")
+                .addAsManifestResource(new ClassLoaderAsset("META-INF/persistence.xml"), "persistence.xml")
+                .addAsResource("META-INF/microprofile-config.properties")
+                .addClasses(Book.class, BookDao.class, BookResource.class, IceAndFireBook.class)
+                .addPackage(JacksonJsonProvider.class.getPackage())
+                .addPackage(ApiResult.class.getPackage());
+        return webArchive;
     }
 
     @Before

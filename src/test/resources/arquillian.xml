@@ -36,12 +36,15 @@
                 tomee.jpa.cdi=false
             </property>
             <property name="additionalLibs">
-                mvn:org.hibernate:hibernate-core:5.2.0.Final
+                mvn:org.hibernate:hibernate-core:5.2.1.Final
+                mvn:org.hibernate:hibernate-tools:5.2.1.Final
                 mvn:org.hibernate.common:hibernate-commons-annotations:5.0.1.Final
                 mvn:org.jboss.logging:jboss-logging:3.3.0.Final
                 mvn:org.javassist:javassist:3.18.1-GA
                 mvn:dom4j:dom4j:1.6.1
                 mvn:com.fasterxml:classmate:1.1.0
+                mvn:com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.4
+                mvn:com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.9.4
                 mvn:antlr:antlr:2.7.7
             </property>
         </configuration>
