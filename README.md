@@ -15,7 +15,7 @@ git clone https://github.com/ivanjunckes/ad-book.git
 ```
 Enter your Github *username* and *password*.
 
-After cloning the project go to the folder ad-book.
+After cloning the project go to the folder *ad-book*.
 
 ## Build and run the project
 Build the project using maven with the command:
