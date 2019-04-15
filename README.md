@@ -1,4 +1,4 @@
-This project has a book api to help you search for external books using [Ice and Fire API](https://anapioficeandfire.com/Documentation#books) and to create, update, read, show and delete your own books.
+This project has an External Book API to help you search for external books using [Ice and Fire API](https://anapioficeandfire.com/Documentation#books) and also it has an API to create, update, read, show and delete your own books.
 
 # Pre-requisites 
 - Java 8
