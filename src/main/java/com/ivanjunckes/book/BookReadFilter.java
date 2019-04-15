@@ -44,4 +44,14 @@ public class BookReadFilter {
     public void setYear(Integer year) {
         this.year = year;
     }
+
+    @Override
+    public String toString() {
+        return "BookReadFilter{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", year=" + year +
+                '}';
+    }
 }
