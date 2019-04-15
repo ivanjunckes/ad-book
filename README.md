@@ -27,4 +27,19 @@ INFO [main] sun.reflect.DelegatingMethodAccessorImpl.invoke Server startup in 48
 ```
 
 ## Testing Instructions
-<http://localhost:8080/api/external-books?name=A Game of Thrones>
+
+### Testing External Books
+This request will look for a book with name Game of Thrones in the external api Ice and Fire.
+```
+GET http://localhost:8080/api/external-books?name=A Game of Thrones
+```
+
+### Testing Books
+This request will look for all the books in the database. 
+```
+GET http://localhost:8080/api/v1/books
+```
+
+This API supports GET, POST, PATCH, DELETE. To be able to view books you need to create them using POST.
+
+
