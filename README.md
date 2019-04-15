@@ -13,7 +13,7 @@ Please follow the instructions below, there are a few steps to pull, install and
 ```
 git clone https://github.com/ivanjunckes/ad-book.git
 ```
-Enter your github *username* and *password*.
+Enter your Github *username* and *password*.
 
 After cloning the project go to the folder ad-book.
 
