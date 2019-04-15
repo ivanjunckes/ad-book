@@ -1,9 +1,9 @@
 This project has an External Book API to help you search for external books using [Ice and Fire API](https://anapioficeandfire.com/Documentation#books) and also it has an API to create, update, read, show and delete your own books.
 
 # Pre-requisites 
-- Java 8
-- Git
-- Apache Maven 3.5.0
+- [Java 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Git](https://git-scm.com/)
+- [Apache Maven 3.5.0 or above](https://maven.apache.org/download.cgi)
 
 Please follow the instructions below, there are a few steps to pull, install and run the project. # 
 
