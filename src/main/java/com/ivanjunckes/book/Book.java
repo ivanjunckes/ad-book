@@ -107,10 +107,6 @@ public class Book {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Book patch(Book bookToPatch) {
         if (bookToPatch == null) {
             return this;

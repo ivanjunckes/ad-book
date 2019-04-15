@@ -4,6 +4,7 @@ import com.ivanjunckes.common.ApiResult;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -12,7 +13,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -44,12 +44,11 @@ public class BookResource {
 
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public Response read(@QueryParam("name") final String name, @QueryParam("country") final String country,
-                         @QueryParam("publisher") final String publisher, @QueryParam("year") final Integer year) {
+    public Response read(@BeanParam BookReadFilter filter) {
         try {
             ApiResult<Book> apiResult = new ApiResult<>();
             apiResult.setStatusCode(Response.Status.OK.getStatusCode());
-            List<Book> books = bookDao.read(name, country, publisher, year);
+            List<Book> books = bookDao.read(filter.getName(), filter.getCountry(), filter.getPublisher(), filter.getYear());
             if (books != null) {
                 apiResult.setData(books);
             }

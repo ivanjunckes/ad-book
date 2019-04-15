@@ -51,7 +51,7 @@ public class BookResourceTest {
                 .addAsWebInfResource(new StringAsset("<beans/>"), "beans.xml")
                 .addAsManifestResource(new ClassLoaderAsset("META-INF/persistence.xml"), "persistence.xml")
                 .addAsResource("META-INF/microprofile-config.properties")
-                .addClasses(Book.class, BookDao.class, BookResource.class, IceAndFireBook.class)
+                .addClasses(Book.class, BookDao.class, BookResource.class, IceAndFireBook.class, BookReadFilter.class)
                 .addPackage(JacksonJsonProvider.class.getPackage())
                 .addPackage(ApiResult.class.getPackage());
         return webArchive;
