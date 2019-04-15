@@ -20,6 +20,7 @@ Build the project using maven with the command:
 ``` 
 mvn clean install -DskipTests tomee:run
 ```
+If you want to execute all the tests before running the application remove -DskipTests. It will run the test and run the app.
 
 When the log below show up, the application is ready to be tested.
 ```
