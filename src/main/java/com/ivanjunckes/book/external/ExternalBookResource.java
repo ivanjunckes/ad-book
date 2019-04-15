@@ -35,7 +35,7 @@ public class ExternalBookResource {
             if(iceAndFireBooks != null){
                 List<Book> externalBooks =
                         iceAndFireBooks.stream()
-                                .map(b -> new Book(b))
+                                .map(b -> b.asBook())
                                 .collect(Collectors.toList());
                 apiResult.setData(externalBooks);
             }

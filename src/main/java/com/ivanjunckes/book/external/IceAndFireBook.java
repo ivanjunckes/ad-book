@@ -1,5 +1,7 @@
 package com.ivanjunckes.book.external;
 
+import com.ivanjunckes.book.Book;
+
 import java.util.Date;
 import java.util.List;
 
@@ -94,5 +96,17 @@ public class IceAndFireBook {
 
     public void setPovCharacters(List<String> povCharacters) {
         this.povCharacters = povCharacters;
+    }
+
+    public Book asBook() {
+        Book book = new Book();
+        book.setName(this.name);
+        book.setIsbn(this.isbn);
+        book.setAuthors(this.authors);
+        book.setNumberOfPages(this.numberOfPages);
+        book.setPublisher(this.publisher);
+        book.setCountry(this.country);
+        book.setReleaseDate(this.released);
+        return book;
     }
 }

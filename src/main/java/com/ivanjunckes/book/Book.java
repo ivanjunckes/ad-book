@@ -2,7 +2,6 @@ package com.ivanjunckes.book;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.ivanjunckes.book.external.IceAndFireBook;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -33,18 +32,6 @@ public class Book {
 
     public Book() {
 
-    }
-
-    public Book(IceAndFireBook iceAndFireBook) {
-        if (iceAndFireBook != null) {
-            this.name = iceAndFireBook.getName();
-            this.isbn = iceAndFireBook.getIsbn();
-            this.authors = iceAndFireBook.getAuthors();
-            this.numberOfPages = iceAndFireBook.getNumberOfPages();
-            this.publisher = iceAndFireBook.getPublisher();
-            this.country = iceAndFireBook.getCountry();
-            this.releaseDate = iceAndFireBook.getReleased();
-        }
     }
 
     public String getName() {

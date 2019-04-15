@@ -7,31 +7,31 @@ import java.util.List;
 import java.util.Map;
 
 public class QueryHelper {
-    private String sql;
+    private StringBuilder sql;
 
     public QueryHelper(String sql) {
-        this.sql = sql;
+        this.sql = new StringBuilder(sql);
     }
 
     public Query parseQuery(EntityManager em, List<String> conditions, Map<String, Object> values, boolean or) {
         for (int i = 0; i < conditions.size(); i++) {
             if (i == 0) {
-                sql += " where";
+                sql.append(" where");
             }
             String condition = conditions.get(i);
-            sql += " " + condition + " ";
+            sql.append(" " + condition + " ");
             boolean isLastIteration = i == conditions.size() - 1;
             if (!isLastIteration) {
                 if (or) {
-                    sql += " OR ";
+                    sql.append(" OR ");
                 } else {
-                    sql += " AND ";
+                    sql.append(" AND ");
                 }
 
             }
         }
 
-        Query query = em.createQuery(sql);
+        Query query = em.createQuery(sql.toString());
         Iterator<Map.Entry<String, Object>> it = values.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Object> next = it.next();
