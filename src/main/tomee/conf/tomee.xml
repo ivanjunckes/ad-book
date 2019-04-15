@@ -1,0 +1,8 @@
+<tomee>
+    <Resource id="HSQLDB Database" type="DataSource">
+        JdbcDriver org.hsqldb.jdbcDriver
+        JdbcUrl jdbc:hsqldb:file:target/db/book
+        UserName sa
+        Password
+    </Resource>
+</tomee>
